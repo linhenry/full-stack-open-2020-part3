@@ -1,0 +1,27 @@
+{
+  "name": "phonebook-backend",
+  "version": "1.0.0",
+  "description": "I will be completing exercises from full stack open 2020 (https://fullstackopen.com/en/). The repository hosts exercises from the following parts: \r * (Part 3) Programming a server with NodeJS and Express, https://fullstackopen.com/en/part3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linhenry/full-stack-open-2020-part3.git"
+  },
+  "author": "Henry Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linhenry/full-stack-open-2020-part3/issues"
+  },
+  "homepage": "https://github.com/linhenry/full-stack-open-2020-part3#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
