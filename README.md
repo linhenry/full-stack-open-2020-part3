@@ -1,2 +1,4 @@
-# full-stack-open-2020-part3
- Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.
+# Full stack open 2020
+
+I will be completing exercises from full stack open 2020 (https://fullstackopen.com/en/). The repository hosts exercises from the following parts: 
+* (Part 3) Programming a server with NodeJS and Express, https://fullstackopen.com/en/part3
