@@ -1,5 +1,4 @@
 const express = require('express')
-const { response } = require('express')
 const app = express()
 
 app.use(express.json())
@@ -51,6 +50,33 @@ app.delete('/api/persons/:id', (req, res) => {
   persons = persons.filter(person => person.id !== id)
   console.log(persons)
   res.status(204).end()
+})
+
+const generateId = () => {
+  const maxId = persons.length > 0
+    ? Math.max(...persons.map(n=> n.id))
+    : 0
+  return maxId + 1
+}
+
+app.post('/api/persons', (req, res) => {
+  const body = req.body
+
+  if (!body.name || !body.number) {
+    return res.status(400).json({ 
+      error: 'missing name or number' 
+    })
+  }
+
+  const person = {
+    name: body.name,
+    number: body.number,
+    id: generateId()
+  }
+
+  persons = persons.concat(person)
+
+  res.json(person)
 })
 
 app.get('/info', (req, res) => {
