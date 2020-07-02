@@ -62,10 +62,15 @@ app.put('/api/persons/:id', (req, res, next) => {
 
   console.log(person)
 
+  const options = {
+    new: true,
+    runValidators: true,
+    context: 'query'
+  }
+
   // JS object with new as true gives us the updated object back instead of the original
-  Person.findByIdAndUpdate(req.params.id, person, { new: true })
+  Person.findByIdAndUpdate(req.params.id, person, options)
     .then(updatedPerson => {
-      console.log(updatedPerson)
       res.json(updatedPerson)
     })
     .catch(error => next(error))
