@@ -9,7 +9,7 @@ const password = process.argv[2]
 const newName = process.argv[3]
 const newNumber = process.argv[4]
 
-const url = 
+const url =
   `mongodb+srv://fullstack:${password}@cluster0.sa9vv.mongodb.net/phonebook-app?retryWrites=true&w=majority`
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,7 +39,7 @@ if (process.argv.length === 5) {
     number: newNumber
   })
 
-    person.save().then(result => {
+  person.save().then(result => {
     console.log(`added ${result.name} number ${result.number} to phonebook`)
     mongoose.connection.close()
   })

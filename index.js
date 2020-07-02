@@ -4,7 +4,6 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const Person = require('./models/person')
-const { response } = require('express')
 
 const app = express()
 app.use(cors())
@@ -41,12 +40,12 @@ app.get('/api/persons/:id', (req, res, next) => {
       res.status(404).end()
     }
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 })
 
 app.delete('/api/persons/:id', (req, res, next) => {
   Person.findByIdAndDelete(req.params.id)
-    .then(result => {
+    .then(() => {
       res.status(204).end()
     })
     .catch(error => next(error))
@@ -83,8 +82,8 @@ app.post('/api/persons', (req, res, next) => {
   const body = req.body
 
   if (!body.name || !body.number) {
-    return res.status(400).json({ 
-      error: 'missing name or number' 
+    return res.status(400).json({
+      error: 'missing name or number'
     })
   }
 
@@ -95,7 +94,7 @@ app.post('/api/persons', (req, res, next) => {
   })
 
   person.save()
-    .then(savedNote => {
+    .then(() => {
       res.json(person)
     })
     .catch(error => next(error))
