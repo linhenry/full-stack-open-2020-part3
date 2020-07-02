@@ -73,7 +73,10 @@ app.put('/api/persons/:id', (req, res, next) => {
     .then(updatedPerson => {
       res.json(updatedPerson)
     })
-    .catch(error => next(error))
+    .catch(error => {
+      console.log(error)
+      next(error)
+    })
 })
 
 app.post('/api/persons', (req, res, next) => {
