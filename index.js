@@ -92,8 +92,10 @@ app.post('/api/persons', (req, res) => {
 
 app.get('/info', (req, res) => {
   const date = new Date()
-  res.send(`<p>Phonebook has info for ${persons.length} people</p>
-            <p>${date}</p>`)
+  Person.find({}).then(person => {
+    res.send(`<p>Phonebook has info for ${person.length} people</p>
+    <p>${date}</p>`)
+  })
 })
 
 const errorHandler = (error, req, res, next) => {
